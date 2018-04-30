@@ -1,4 +1,4 @@
-FROM node:4-stretch
+FROM ubuntu:xenial
 MAINTAINER Nick Thieling <nick@adrift.io>
 
 # EXPOSE 3001 3232 6667 8333 18333 # specify ports at runtime based on services used
@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
   libzmq3-dev \
   build-essential
   
-RUN npm install -g bitcore@4.1.0 # must pin for now https://github.com/bitpay/bitcore/issues/1454
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+RUN /bin/bash -l -c "nvm install v4 && nvm alias default v4"
+RUN /bin/bash -l -c "npm install bitcore -g"
 
 ENTRYPOINT [ "bitcored" ]
