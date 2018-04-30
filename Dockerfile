@@ -7,6 +7,7 @@ HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD curl -f http://localhost
 RUN apt-get update && apt-get install -y \
   libzmq3-dev \
   build-essential \
+  python2.7 \
   curl
   
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
