@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y \
   build-essential \
   python2.7 \
   curl
-  
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 RUN . ~/.nvm/nvm.sh \
     && nvm install v4 \
