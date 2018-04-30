@@ -15,6 +15,6 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.s
 RUN . ~/.nvm/nvm.sh \
     && nvm install v4 \
     && nvm alias default v4 \
-    && npm install bitcore -g
+RUN npm install bitcore -g
 
 ENTRYPOINT [ "bitcored" ]
