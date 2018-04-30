@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
   curl
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - \
+  && apt-get install -y nodejs
 RUN npm install bitcore@4.1.0 -g
 
 ENTRYPOINT [ ". ~/.nvm/nvm.sh && bitcored" ]
