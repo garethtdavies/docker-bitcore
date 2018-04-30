@@ -9,8 +9,10 @@ RUN apt-get update && apt-get install -y \
   build-essential \
   curl
   
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
-ENV NVM_DIR=/root/.nvm
-RUN ". $HOME/.nvm/nvm.sh && nvm install v4 && nvm alias default v4 && npm install bitcore -g"
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+RUN source ~/.nvm/nvm.sh \
+    && nvm install v4 \
+    && nvm alias default v4 \
+    && npm install bitcore -g
 
 ENTRYPOINT [ "bitcored" ]
