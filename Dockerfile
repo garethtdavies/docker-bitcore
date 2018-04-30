@@ -17,4 +17,4 @@ RUN . ~/.nvm/nvm.sh \
     && nvm alias default v4 \
 RUN npm install bitcore@4.1.0 -g
 
-ENTRYPOINT [ "bitcored" ]
+ENTRYPOINT [ ". ~/.nvm/nvm.sh && bitcored" ]
