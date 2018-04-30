@@ -6,7 +6,8 @@ HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD curl -f http://localhost
 
 RUN apt-get update && apt-get install -y \
   libzmq3-dev \
-  build-essential
+  build-essential \
+  curl
   
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 RUN /bin/bash -l -c "nvm install v4 && nvm alias default v4"
