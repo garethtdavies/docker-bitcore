@@ -15,4 +15,4 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - \
   && apt-get install -y nodejs
 RUN npm install bitcore@4.1.0 -g
 
-ENTRYPOINT [ ". ~/.nvm/nvm.sh && bitcored" ]
+ENTRYPOINT [ "bitcored" ]
