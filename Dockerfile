@@ -11,10 +11,7 @@ RUN apt-get update && apt-get install -y \
   curl
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-RUN . ~/.nvm/nvm.sh \
-    && nvm install v4 \
-    && nvm alias default v4 \
+RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 RUN npm install bitcore@4.1.0 -g
 
 ENTRYPOINT [ ". ~/.nvm/nvm.sh && bitcored" ]
