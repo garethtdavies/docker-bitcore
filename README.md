@@ -10,19 +10,6 @@ First, create a volume in which the persistent data may be stored. This is the b
 docker volume create --name bitcore_data
 ```
 
-Add your desired `bitcoin-node.json` file into the volume. [Service options list](https://github.com/bitpay/bitcore-node/blob/master/bitcore-node.json.sample).
-Example:
-```
-{
-  "network": "livenet",
-  "port": 3001,
-  "services": [
-    "bitcoind",
-    "web"
-  ]
-}
-```
-
 Now, run the image with flags to punch out ports for various services you are intending to enable and designate in your `bitcoin-node.json` file.
 ```
 docker run -d --restart=always --name bitcore \
